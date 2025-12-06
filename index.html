@@ -24,6 +24,76 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <link href="assets/css/main.css" rel="stylesheet">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: 'NigukDpcy_El_bTRF',
+      });
+    })();
+  </script>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      document.getElementById('shadowtrace-contact').addEventListener('submit', function (event) {
+        event.preventDefault();
+        emailjs.sendForm('service_shadowtrace', 'template_8ufoelf', this)
+          .then(() => {
+
+            const Toast = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+              }
+            });
+
+            Toast.fire({
+              icon: "success",
+              title: "Pesan Anda berhasil dikirim!"
+            });
+
+            document.getElementById('shadowtrace-contact').reset();
+
+          }, (error) => {
+            console.log('FAILED...', error);
+
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Gagal mengirim pesan. Silakan coba lagi.'
+            });
+          });
+      });
+    }
+  </script>
+  <script>
+    function formatDate() {
+      const now = new Date();
+
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      const month = months[now.getMonth()];
+      const day = now.getDate();
+      const year = now.getFullYear();
+
+      const hours = String(now.getHours()).padStart(2, "0");
+      const minutes = String(now.getMinutes()).padStart(2, "0");
+
+      return `${month} ${day} ${year} ${hours}:${minutes}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector("input[name='time']").value = formatDate();
+    });
+  </script>
 
 </head>
 
@@ -577,7 +647,8 @@
               </div>
 
               <h3 style="text-align: center; font-size: 20px;">Professional Fatchan Muhammad Hakim</h3>
-              <p style="font-size: 14px;">Junior Web Developer with a strong foundation in building modern, responsive, and user-friendly
+              <p style="font-size: 14px;">Junior Web Developer with a strong foundation in building modern, responsive,
+                and user-friendly
                 applications.
                 Skilled in Laravel, FilamentPHP, and front-end technologies, with a passion for continuous learning and
                 improving
@@ -632,7 +703,8 @@
                 <h5>November 2018 - January 2019</h5>
                 <p class="company"><i class="bi bi-building"></i> IT Infrastructure - PKL</p>
                 <ul>
-                  <li>Got to know the open-source Linux and FreeBSD to build a server that can connect to pfSense, with the aim of creating a VPN.</li>
+                  <li>Got to know the open-source Linux and FreeBSD to build a server that can connect to pfSense, with
+                    the aim of creating a VPN.</li>
                 </ul>
               </div>
 
@@ -641,8 +713,10 @@
                 <h5>January - August 2025</h5>
                 <p class="company"><i class="bi bi-building"></i> Web Developer</p>
                 <ul>
-                  <li>I created the Safira application to help the finance team view customer data, both those who have made transactions and those who have not, using Laravel 11.</li>
-                  <li>I developed a marketplace application, starting from the dashboard page to other features, using Laravel.</li>
+                  <li>I created the Safira application to help the finance team view customer data, both those who have
+                    made transactions and those who have not, using Laravel 11.</li>
+                  <li>I developed a marketplace application, starting from the dashboard page to other features, using
+                    Laravel.</li>
                   <li>Managed team of 8 developers across multiple projects</li>
                   <li>I created the Evaluna application to help HR assess backend employees, using Express.js</li>
                 </ul>
@@ -718,14 +792,14 @@
 
                 <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-developer">
                   <div class="portfolio-wrap">
-                    <img src="assets/img/portfolio/Proyek-1.png" class="img-fluid" alt="Portfolio Image"
-                      loading="lazy">
+                    <img src="assets/img/portfolio/Proyek-1.png" class="img-fluid" alt="Portfolio Image" loading="lazy">
                     <div class="portfolio-info">
                       <div class="content">
                         <span class="category">Web Developer</span>
                         <h4 style="color: aliceblue;">Monitoring Distribusi Vitamin Tambah Darah</h4>
                         <div class="portfolio-links">
-                          <a href="assets/img/portfolio/Proyek-1.png" class="glightbox"><i class="bi bi-plus-lg"></i></a>
+                          <a href="assets/img/portfolio/Proyek-1.png" class="glightbox"><i
+                              class="bi bi-plus-lg"></i></a>
                           <a href="#" title="More Details"><i class="bi bi-arrow-right"></i></a>
                         </div>
                       </div>
@@ -735,8 +809,7 @@
 
                 <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-developer">
                   <div class="portfolio-wrap">
-                    <img src="assets/img/portfolio/Proyek-2.png" class="img-fluid" alt="Portfolio Image"
-                      loading="lazy">
+                    <img src="assets/img/portfolio/Proyek-2.png" class="img-fluid" alt="Portfolio Image" loading="lazy">
                     <div class="portfolio-info">
                       <div class="content">
                         <span class="category">Web Developer</span>
@@ -753,14 +826,14 @@
 
                 <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-developer">
                   <div class="portfolio-wrap">
-                    <img src="assets/img/portfolio/Proyek-3.png" class="img-fluid" alt="Portfolio Image"
-                      loading="lazy">
+                    <img src="assets/img/portfolio/Proyek-3.png" class="img-fluid" alt="Portfolio Image" loading="lazy">
                     <div class="portfolio-info">
                       <div class="content">
                         <span class="category">Web Developer</span>
                         <h4 style="color: aliceblue;">E-Schedule</h4>
                         <div class="portfolio-links">
-                          <a href="assets/img/portfolio/Proyek-3.png" class="glightbox"><i class="bi bi-plus-lg"></i></a>
+                          <a href="assets/img/portfolio/Proyek-3.png" class="glightbox"><i
+                              class="bi bi-plus-lg"></i></a>
                           <a href="#" title="More Details"><i class="bi bi-arrow-right"></i></a>
                         </div>
                       </div>
@@ -770,14 +843,14 @@
 
                 <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-developer">
                   <div class="portfolio-wrap">
-                    <img src="assets/img/portfolio/Proyek-4.jpg" class="img-fluid" alt="Portfolio Image"
-                      loading="lazy">
+                    <img src="assets/img/portfolio/Proyek-4.jpg" class="img-fluid" alt="Portfolio Image" loading="lazy">
                     <div class="portfolio-info">
                       <div class="content">
                         <span class="category">Web Developer</span>
                         <h4 style="color: aliceblue;">School Management System</h4>
                         <div class="portfolio-links">
-                          <a href="assets/img/portfolio/Proyek-4.jpg" class="glightbox"><i class="bi bi-plus-lg"></i></a>
+                          <a href="assets/img/portfolio/Proyek-4.jpg" class="glightbox"><i
+                              class="bi bi-plus-lg"></i></a>
                           <a href="#" title="More Details"><i class="bi bi-arrow-right"></i></a>
                         </div>
                       </div>
@@ -787,14 +860,14 @@
 
                 <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-developer">
                   <div class="portfolio-wrap">
-                    <img src="assets/img/portfolio/Proyek-5.png" class="img-fluid" alt="Portfolio Image"
-                      loading="lazy">
+                    <img src="assets/img/portfolio/Proyek-5.png" class="img-fluid" alt="Portfolio Image" loading="lazy">
                     <div class="portfolio-info">
                       <div class="content">
                         <span class="category">Web Developer</span>
                         <h4 style="color: aliceblue;">Safira</h4>
                         <div class="portfolio-links">
-                          <a href="assets/img/portfolio/Proyek-5.png" class="glightbox"><i class="bi bi-plus-lg"></i></a>
+                          <a href="assets/img/portfolio/Proyek-5.png" class="glightbox"><i
+                              class="bi bi-plus-lg"></i></a>
                           <a href="#" title="More Details"><i class="bi bi-arrow-right"></i></a>
                         </div>
                       </div>
@@ -804,14 +877,14 @@
 
                 <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-developer">
                   <div class="portfolio-wrap">
-                    <img src="assets/img/portfolio/Proyek-6.png" class="img-fluid" alt="Portfolio Image"
-                      loading="lazy">
+                    <img src="assets/img/portfolio/Proyek-6.png" class="img-fluid" alt="Portfolio Image" loading="lazy">
                     <div class="portfolio-info">
                       <div class="content">
                         <span class="category">Web Developer</span>
                         <h4 style="color: aliceblue;">Presensigli</h4>
                         <div class="portfolio-links">
-                          <a href="assets/img/portfolio/Proyek-6.png" class="glightbox"><i class="bi bi-plus-lg"></i></a>
+                          <a href="assets/img/portfolio/Proyek-6.png" class="glightbox"><i
+                              class="bi bi-plus-lg"></i></a>
                           <a href="#" title="More Details"><i class="bi bi-arrow-right"></i></a>
                         </div>
                       </div>
@@ -821,14 +894,14 @@
 
                 <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-developer">
                   <div class="portfolio-wrap">
-                    <img src="assets/img/portfolio/Proyek-7.png" class="img-fluid" alt="Portfolio Image"
-                      loading="lazy">
+                    <img src="assets/img/portfolio/Proyek-7.png" class="img-fluid" alt="Portfolio Image" loading="lazy">
                     <div class="portfolio-info">
                       <div class="content">
                         <span class="category">Web Developer</span>
                         <h4 style="color: aliceblue;">Shadowtrace</h4>
                         <div class="portfolio-links">
-                          <a href="assets/img/portfolio/Proyek-7.png" class="glightbox"><i class="bi bi-plus-lg"></i></a>
+                          <a href="assets/img/portfolio/Proyek-7.png" class="glightbox"><i
+                              class="bi bi-plus-lg"></i></a>
                           <a href="#" title="More Details"><i class="bi bi-arrow-right"></i></a>
                         </div>
                       </div>
@@ -895,8 +968,10 @@
             <div class="contact-form">
               <h3>Get In Touch</h3>
 
-              <form action="#" method="post" class="php-email-form">
+              <form id="shadowtrace-contact" action="#" method="post" class="php-email-form">
                 <div class="row gy-4">
+
+                  <input type="hidden" name="time" value="">
 
                   <div class="col-md-6">
                     <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
@@ -915,7 +990,7 @@
                   </div>
 
                   <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
+                    <div class="loading">Loading...</div>
                     <div class="error-message"></div>
                     <div class="sent-message">Your message has been sent. Thank you!</div>
 
@@ -940,7 +1015,8 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright 2025</span> <strong class="px-1 sitename">Fatchan Muhammad Hakim</strong> <span> 🇮🇩 </span></p>
+        <p>© <span>Copyright 2025</span> <strong class="px-1 sitename">Fatchan Muhammad Hakim</strong> <span> 🇮🇩
+          </span></p>
       </div>
     </div>
 
