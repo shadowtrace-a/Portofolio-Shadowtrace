@@ -26,74 +26,6 @@
   <link href="assets/css/main.css" rel="stylesheet">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
-  <script type="text/javascript">
-    (function () {
-      emailjs.init({
-        publicKey: 'NigukDpcy_El_bTRF',
-      });
-    })();
-  </script>
-
-  <script type="text/javascript">
-    window.onload = function () {
-      document.getElementById('shadowtrace-contact').addEventListener('submit', function (event) {
-        event.preventDefault();
-        emailjs.sendForm('service_shadowtrace', 'template_8ufoelf', this)
-          .then(() => {
-
-            const Toast = Swal.mixin({
-              toast: true,
-              position: "top-end",
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-              }
-            });
-
-            Toast.fire({
-              icon: "success",
-              title: "Pesan Anda berhasil dikirim!"
-            });
-
-            document.getElementById('shadowtrace-contact').reset();
-
-          }, (error) => {
-            console.log('FAILED...', error);
-
-            Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'Gagal mengirim pesan. Silakan coba lagi.'
-            });
-          });
-      });
-    }
-  </script>
-  <script>
-    function formatDate() {
-      const now = new Date();
-
-      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-      const month = months[now.getMonth()];
-      const day = now.getDate();
-      const year = now.getFullYear();
-
-      const hours = String(now.getHours()).padStart(2, "0");
-      const minutes = String(now.getMinutes()).padStart(2, "0");
-
-      return `${month} ${day} ${year} ${hours}:${minutes}`;
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelector("input[name='time']").value = formatDate();
-    });
-  </script>
 
 </head>
 
@@ -968,7 +900,7 @@
             <div class="contact-form">
               <h3>Get In Touch</h3>
 
-              <form id="shadowtrace-contact" onsubmit="return false" class="php-email-form">
+              <form id="shadowtrace-contact" class="php-email-form">
                 <div class="row gy-4">
 
                   <input type="hidden" name="time" value="">
@@ -990,10 +922,6 @@
                   </div>
 
                   <div class="col-12 text-center">
-                    <div class="loading">Loading...</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
                     <button type="submit" class="btn">Send Message</button>
                   </div>
 
@@ -1039,6 +967,75 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <script src="assets/js/main.js"></script>
+
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: 'NigukDpcy_El_bTRF',
+      });
+    })();
+  </script>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      document.getElementById('shadowtrace-contact').addEventListener('submit', function (event) {
+        event.preventDefault();
+        emailjs.sendForm('service_shadowtrace', 'template_8ufoelf', this)
+          .then(() => {
+
+            const Toast = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+              }
+            });
+
+            Toast.fire({
+              icon: "success",
+              title: "Pesan Anda berhasil dikirim!"
+            });
+
+            document.getElementById('shadowtrace-contact').reset();
+
+          }, (error) => {
+            console.log('FAILED...', error);
+
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Gagal mengirim pesan. Silakan coba lagi.'
+            });
+          });
+      });
+    }
+  </script>
+
+  <script>
+    function formatDate() {
+      const now = new Date();
+
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      const month = months[now.getMonth()];
+      const day = now.getDate();
+      const year = now.getFullYear();
+
+      const hours = String(now.getHours()).padStart(2, "0");
+      const minutes = String(now.getMinutes()).padStart(2, "0");
+
+      return `${month} ${day} ${year} ${hours}:${minutes}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector("input[name='time']").value = formatDate();
+    });
+  </script>
 
 </body>
 
